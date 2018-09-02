@@ -26,7 +26,7 @@
     }
 
     //其他直播广告移除
-    let blockList=[];
+    let blockList = [];
     blockList.push(
         $(".room-footer"),
         $(".mod-sidebar"),
@@ -124,7 +124,7 @@
     .room-core .room-core-r {
       position: unset;
       width: 100%;
-      height: 100vh;
+      height: auto;
     }
     #J_weekRankBox,
     .jspContainer,
@@ -132,6 +132,9 @@
     #watchChat_pub {
       width: 100% !important;
       margin: 0;
+    }
+    #player-recommend .player-recommend-bg {
+      filter: blur(32px);
     }`, "Main");
     $(".room-hd-l").after($("<div class='flex-white'></div>"))
     //聊天部分
@@ -155,7 +158,26 @@
       pointer-events: none !important;
     }
     `, "Chat");
-    blockList.forEach((e)=>{
+    blockList.forEach((e) => {
         e.addClass("disabled")
     })
+
+
+    addCss(`
+    .egg {
+      font-family: sans-serif;
+      display: flex;
+      position: absolute;
+      top: 93.2vh;
+      width: 100%;
+      text-align: center;
+      align-items: center;
+      color: red;
+      font-size: 16px;
+      justify-content: center;
+    }`, "CaiDan")
+    let egg = $("<div\>")
+    egg.addClass("egg")
+    egg.append($("<span>你瞎跑什么唉</span>"))
+    body.append(egg)
 })();
